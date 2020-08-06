@@ -35,15 +35,20 @@
                     <td>{{$contatos->email}}</td>
                     <td>{{$friend->name}}</td>
                     <td>
-                        <a href="#">
+
+                        {{-- coletando id no params de rota para link de page --}}
+                        <a href="{{url("agenda/$contatos->id")}}">
                             <button class="btn btn-dark">Visualizar</button>
                         </a>
+
                         <a href="#">
                             <button class="btn btn-primary">Editar</button>
                         </a>
+
                         <a href="#">
                             <button class="btn btn-danger">Deletar</button>
                         </a>
+
                     </td>
                 </tr>
               @endforeach

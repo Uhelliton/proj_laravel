@@ -22,5 +22,8 @@ Route::get('/', function () {
 
 */
 
-// Modelo de Rota por controller
-Route::get('/', 'AgendaController@index');
+// Modelo de Rota por controller chamada de método
+//Route::get('/agenda', 'AgendaController@index');
+
+// Modelo de Rota por controller chamada all métodos
+Route::resource('/agenda', 'AgendaController');
