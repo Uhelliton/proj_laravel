@@ -2,8 +2,54 @@
 
 @section('content')
 
-    <h1 class="text-center">
-        Olá Mundo Laravel
+    <h1 class="text-center mt-4 mb-4">
+        Agenda de Contatos
     </h1>
+    <hr/>
+
+    <div class="text-center mt-3 mb-4">
+        <a href="#">
+            <button class="btn btn-success">Cadastrar</button>
+        </a>
+    </div>
+    <div class="col-8 m-auto">
+        <table class="table text-center">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Contato</th>
+                <th scope="col">Email</th>
+                <th scope="col">Friend</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              @foreach ($contato as $contatos)
+                @php
+                    $friend = $contatos->find($contatos->id)->relUser;
+                @endphp
+                <tr>
+                    <th scope="row">{{$contatos->id}}</th>
+                    <td>{{$contatos->contato}}</td>
+                    <td>{{$contatos->email}}</td>
+                    <td>{{$friend->name}}</td>
+                    <td>
+                        <a href="#">
+                            <button class="btn btn-dark">Visualizar</button>
+                        </a>
+                        <a href="#">
+                            <button class="btn btn-primary">Editar</button>
+                        </a>
+                        <a href="#">
+                            <button class="btn btn-danger">Deletar</button>
+                        </a>
+                    </td>
+                </tr>
+              @endforeach
+
+            </tbody>
+          </table>
+    </div>
 
 @endsection

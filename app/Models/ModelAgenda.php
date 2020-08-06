@@ -8,4 +8,9 @@ class ModelAgenda extends Model
 {
     //
     protected $table='agenda';
+
+    public function relUser()
+    {
+        return $this->hasOne('App\User', 'id', 'id_user');
+    }
 }

@@ -3,9 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ModelAgenda;
+use App\User;
 
 class AgendaController extends Controller
 {
+
+    private $objUser;
+    private $objContato;
+
+    public function __construct()
+    {
+        $this->objUser = new User();
+        $this->objContato = new ModelAgenda();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +26,9 @@ class AgendaController extends Controller
     public function index()
     {
         // retorna a camada de visão nomeada do *.blade.php
-        return view('index');
+        $contato = $this->objContato->all();
+        return view('index', compact('contato'));
+        //dd($this->objUser->find(1)->relContato);
     }
 
     /**
