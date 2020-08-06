@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+Modelo de Rota Padrão iniciada
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+*/
+
+// Modelo de Rota por controller
+Route::get('/', 'AgendaController@index');
