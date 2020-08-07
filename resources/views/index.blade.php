@@ -8,8 +8,11 @@
     <hr/>
 
     <div class="text-center mt-3 mb-4">
-        <a href="#">
+        <a href="{{url('agenda/create')}}">
             <button class="btn btn-success">Cadastrar</button>
+        </a>
+        <a href="{{url('/')}}">
+            <button class="btn btn-danger">Sair</button>
         </a>
     </div>
     <div class="col-8 m-auto">

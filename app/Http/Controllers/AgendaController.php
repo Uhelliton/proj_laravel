@@ -38,7 +38,8 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        //
+        $user = $this->objUser->all();
+        return view('cadastro', compact('user'));
     }
 
     /**
@@ -49,7 +50,16 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cad= $this->objContato->create([
+            'contato'=>$request->contato,
+            'email'=>$request->email,
+            'telefone'=>$request->telefone,
+            'empresa'=>$request->empresa,
+            'id_user'=>$request->id_user
+        ]);
+        if($cad){
+            return redirect('agenda');
+        }
     }
 
     /**

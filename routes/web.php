@@ -27,3 +27,6 @@ Route::get('/', function () {
 
 // Modelo de Rota por controller chamada all métodos
 Route::resource('/agenda', 'AgendaController');
+Route::get('/', function(){
+    return view('home');
+});

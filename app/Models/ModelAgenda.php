@@ -8,6 +8,7 @@ class ModelAgenda extends Model
 {
     //
     protected $table='agenda';
+    protected $fillable=['contato', 'telefone', 'email', 'empresa', 'id_user'];
 
     public function relUser()
     {
