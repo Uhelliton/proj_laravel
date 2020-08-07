@@ -60,7 +60,8 @@ class AgendaController extends Controller
      */
     public function show($id)
     {
-        echo $id;
+        $contato = $this->objContato->find($id);
+        return view('showcontato', compact('contato'));
     }
 
     /**
