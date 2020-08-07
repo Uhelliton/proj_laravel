@@ -83,7 +83,10 @@ class AgendaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contato = $this->objContato->find($id);
+        $user = $this->objUser->all();
+        return view('cadastro', compact('contato', 'user'));
+
     }
 
     /**
@@ -95,7 +98,14 @@ class AgendaController extends Controller
      */
     public function update(AgendaRequest $request, $id)
     {
-        //
+        $this->objContato->where(['id' => $id])->update([
+            'contato'=>$request->contato,
+            'email'=>$request->email,
+            'telefone'=>$request->telefone,
+            'empresa'=>$request->empresa,
+            'id_user'=>$request->id_user
+        ]);
+        return redirect('agenda/');
     }
 
     /**
