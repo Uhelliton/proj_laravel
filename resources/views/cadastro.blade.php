@@ -14,6 +14,13 @@
     </div>
 
     <div class="col-8 m-auto">
+        @if(isset($errors) && count($errors)>0)
+            <div class="text-center mt-4 mb-4 p-2 alert-danger">
+                @foreach ($errors->all() as $error)
+                    {{$error}}<br>
+                @endforeach
+            </div>
+        @endif
         <form name="formCad" id="formCad" action="{{url('agenda')}}" method="post">
             @csrf
             <input required type="text" class="form-control" name="contato" id="contato" placeholder="Nome do Contato"><br>
