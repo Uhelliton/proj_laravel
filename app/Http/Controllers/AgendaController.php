@@ -114,8 +114,13 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+       $contact = $this->objContato->destroy($id);
+       // $this->objContato->destroy([1, 2, 3]); // remove mutiple ids
+       
+        if ($contact) 
+          response()->json(['success'   => true], 200);
+        
     }
 }
